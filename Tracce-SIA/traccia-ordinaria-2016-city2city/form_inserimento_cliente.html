@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrazione Cliente</title>
+</head>
+<body>
+    <h1>Registrati su City2City</h1>
+    <form action="insert.php" method="POST">
+        <label for="CF">Codice Fiscale:</label>
+        <input type="text" id="CF" name="CF" required><br><br>
+
+        <label for="Nome">Nome:</label>
+        <input type="text" id="Nome" name="Nome" required><br><br>
+
+        <label for="Cognome">Cognome:</label>
+        <input type="text" id="Cognome" name="Cognome" required><br><br>
+
+        <label for="Email">Email:</label>
+        <input type="email" id="Email" name="Email" required><br><br>
+
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password" required><br><br>
+
+        <label for="DataNascita">Data di nascita:</label>
+        <input type="date" id="DataNascita" name="DataNascita" required><br><br>
+
+        <label for="StileVita">Stile di vita:</label>
+        <select id="StileVita" name="StileVita" required>
+            <option value="sportivo">Sportivo</option>
+            <option value="familiare">Familiare</option>
+            <option value="studente">Studente</option>
+            <option value="professionista">Professionista</option>
+            <option value="senior">Senior</option>
+            <option value="altro">Altro</option>
+        </select><br><br>
+
+        <label for="Interesse">Interesse principale:</label>
+        <select id="Interesse" name="Interesse" required>
+            <option value="cultura">Cultura</option>
+            <option value="natura">Natura</option>
+            <option value="eventi">Eventi</option>
+            <option value="shopping">Shopping</option>
+            <option value="relax">Relax</option>
+            <option value="affari">Affari</option>
+        </select><br><br>
+
+        <label for="NumeroFamiliari">Numero familiari:</label>
+        <input type="number" id="NumeroFamiliari" name="NumeroFamiliari" min="0" required><br><br>
+
+        <input type="submit" value="Registrati">
+    </form>
+</body>
+</html>
+
+
+
+
