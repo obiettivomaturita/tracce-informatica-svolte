@@ -8,13 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $disponibile = $_POST["Disponibile"];
     $provincia = $_POST["Provincia"];
     $idc = $_POST["IDC"];
+    $idca=$_POST["Categoria"];
 
     if (empty($numeroinventario) || empty($nome) || empty($tipologia) || $disponibile === "" || empty($provincia) || empty($idc)) {
         die("Tutti i campi sono obbligatori.");
     }
 
-    $query = "INSERT INTO RISORSA (NumeroInventario, IDC, Nome, Tipologia, Disponibile, Provincia)
-              VALUES (?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO RISORSA (NumeroInventario, IDC, Nome, Tipologia, Disponibile, Provincia,IDCA)
+              VALUES (?, ?, ?, ?, ?, ?,?)";
 
     $stmt = $connection->prepare($query);
     if (!$stmt) {

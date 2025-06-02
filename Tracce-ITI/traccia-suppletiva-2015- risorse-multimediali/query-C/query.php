@@ -2,15 +2,14 @@
 require "db_connection.php";
 
 $query = "
-    SELECT R.Nome, R.Tipologia, CE.Nome AS NomeCentro, CA.Nome AS NomeCategoria
-    FROM PRESTITO P
-    INNER JOIN RISORSA R ON R.NumeroInventario = P.NumeroInventario AND R.IDC = P.IDC
-    INNER JOIN CENTRO CE ON CE.IDC = R.IDC
-    INNER JOIN APPARTENERE A ON A.NumeroInventario = R.NumeroInventario AND A.IDC = R.IDC
-    INNER JOIN CATEGORIA CA ON CA.IDCA = A.IDCA
-    WHERE DATEDIFF(CURDATE(), P.DataInizio) > 180
-    ORDER BY CE.Nome, CA.Nome
-";
+    SELECT R.Nome, R.Tipologia
+    FROM PRESTITO PR
+    INNER JOIN RISORSA R ON R.NumeroInventario = PR.NumeroInventario AND R.IDC = PR.IDC
+    INNER JOIN CATEGORIA CA ON CA.IDCA = R.IDCA
+    INNER JOIN CENTRO C ON C.IDC = R.IDC
+    WHERE PR.DataFine IS NULL AND DATEDIFF(CURDATE(), PR.DataInizio) > 180  
+    ORDER BY C.Nome, CA.Nome;
+    ";
 
 $stmt = $connection->prepare($query);
 $stmt->execute();
@@ -32,8 +31,6 @@ $result = $stmt->get_result();
         echo "<tbody>";
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . $row["NomeCentro"] . "</td>";
-            echo "<td>" . $row["NomeCategoria"] . "</td>";
             echo "<td>" . $row["Nome"] . "</td>";
             echo "<td>" . $row["Tipologia"] . "</td>";
             echo "</tr>";

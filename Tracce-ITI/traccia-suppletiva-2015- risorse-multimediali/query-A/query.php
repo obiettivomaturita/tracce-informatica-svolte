@@ -4,13 +4,11 @@ require "db_connection.php";
 $categoria = $_POST["categoria"];
 
 $query = "
-    SELECT P.NumeroInventario, P.IDC, P.DataPrenotazione
+    SELECT P.NumeroInventario, P.DataPrenotazione
     FROM PRENOTARE P
-    INNER JOIN RISORSA R ON R.NumeroInventario = P.NumeroInventario AND R.IDC = P.IDC
-    INNER JOIN APPARTENERE A ON A.NumeroInventario = R.NumeroInventario AND A.IDC = R.IDC
-    INNER JOIN CATEGORIA C ON C.IDCA = A.IDCA
-    WHERE C.Nome = ?
-    ORDER BY R.Provincia
+    INNER JOIN RISORSA R ON R.NumeroInventario=P.NumeroInventario AND R.IDC = P.IDC
+    INNER JOIN CATEGORIA C ON C.IDCA=R.IDCA
+    WHERE C.Nome='tablet';
 ";
 
 $stmt = $connection->prepare($query);

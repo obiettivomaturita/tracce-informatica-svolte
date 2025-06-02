@@ -3,25 +3,24 @@ require "db_connection.php";
 
 $query = "
     SELECT CA.Nome
-    FROM (
-        SELECT CA.Nome, COUNT(*) AS NumPrestiti
-        FROM PRESTITO P
-        INNER JOIN RISORSA R ON R.NumeroInventario = P.NumeroInventario AND R.IDC = P.IDC
-        INNER JOIN APPARTENERE A ON A.NumeroInventario = R.NumeroInventario AND A.IDC = R.IDC
-        INNER JOIN CATEGORIA CA ON CA.IDCA = A.IDCA
-        GROUP BY CA.Nome
+    FROM
+    (  SELECT CA.Nome, COUNT(*) AS NumPrestiti
+    FROM PRESTITO PR
+    INNER JOIN RISORSA R ON R.NumeroInventario = PR.NumeroInventario AND R.IDC = PR.IDC
+    INNER JOIN CATEGORIA CA ON CA.IDCA = R.IDCA
+    GROUP BY CA.Nome
     ) AS PrestitiCategoria
     WHERE NumPrestiti = (
-        SELECT MAX(NumP)
-        FROM (
-            SELECT COUNT(*) AS NumP
-            FROM PRESTITO P
-            INNER JOIN RISORSA R ON R.NumeroInventario = P.NumeroInventario AND R.IDC = P.IDC
-            INNER JOIN APPARTENERE A ON A.NumeroInventario = R.NumeroInventario AND A.IDC = R.IDC
-            INNER JOIN CATEGORIA CA ON CA.IDCA = A.IDCA
-            GROUP BY CA.Nome
-        ) AS MaxPrestiti
-    )
+    SELECT MAX(MaxPr) 
+    FROM 
+    ( 
+        SELECT COUNT(*) AS MaxPr
+    FROM PRESTITO PR
+    INNER JOIN RISORSA R ON R.NumeroInventario = PR.NumeroInventario AND R.IDC = PR.IDC
+    INNER JOIN CATEGORIA CA ON CA.IDCA = R.IDCA
+    GROUP BY CA.Nome
+    ) AS MaxPrestiti
+);
 ";
 
 $stmt = $connection->prepare($query);

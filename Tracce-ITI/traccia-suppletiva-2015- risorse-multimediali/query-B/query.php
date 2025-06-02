@@ -4,14 +4,11 @@ require "db_connection.php";
 $centro = $_POST["centro"];
 
 $query = "
-SELECT DISTINCT C.Nome
-FROM CATEGORIA C
-INNER JOIN APPARTENERE A ON A.IDCA = C.IDCA
-INNER JOIN RISORSA R ON R.NumeroInventario = A.NumeroInventario AND R.IDC = A.IDC
-INNER JOIN CENTRO CE ON CE.IDC = R.IDC
-WHERE CE.Nome = 'MediaCenter';
-
-";
+    SELECT DISTINCT CA.Nome
+    FROM CATEGORIA CA
+    INNER JOIN RISORSA R ON R.IDCA=A.IDCA
+    INNER JOIN CENTRO C ON C.IDC=R.IDC
+    WHERE C.Nome= 'MediaCenter'";
 
 $stmt = $connection->prepare($query);
 if (!$stmt) {
