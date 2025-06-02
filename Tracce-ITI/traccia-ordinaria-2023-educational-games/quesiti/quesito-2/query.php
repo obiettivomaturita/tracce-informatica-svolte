@@ -1,57 +1,61 @@
-<?php
-session_start();
-$cf  = $_SESSION['cf_abbonato'];
-$ida = $_POST['ida'];
-$idp = $_POST['idp'];
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Inserisci Recensione</title>
+</head>
+<body>
+    <h1>Inserisci una Recensione</h1>
+    <form action="recensire_insert.php" method="POST">
+        <label for="idv">ID Videogioco:</label>
+        <input type="number" id="idv" name="idv" required><br><br>
 
+        <label for="ids">ID Studente:</label>
+        <input type="number" id="ids" name="ids" required><br><br>
+
+        <label for="punteggio">Punteggio (1-5):</label>
+        <input type="number" id="punteggio" name="punteggio" min="1" max="5" required><br><br>
+
+        <label for="descrizione">Descrizione:</label><br>
+        <textarea id="descrizione" name="descrizione" maxlength="160" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="data">Data Recensione:</label>
+        <input type="date" id="data" name="data" required><br><br>
+
+        <input type="submit" value="Invia Recensione">
+    </form>
+</body>
+</html>
+
+<?php
 require "db_connection.php";
 
 $query = "
-SELECT G.Giorno, G.Orario_inizio, A.Prezzo
-FROM GIORNO_E_ORA G
-JOIN ATTIVITA A ON G.IDA = A.IDA AND G.IDP = A.IDP
-WHERE G.IDA = ? AND G.IDP = ?";
-$stmt = $mysqli->prepare($query);
-$stmt->bind_param("ii", $ida, $idp);
-$stmt->execute();
-$dt_attivita = $giorno . ' ' . $ora_inizio;
-$stmt->bind_result($dt_attivita, $prezzo);
-if (!$stmt->fetch()) {
-    die("Attività non trovata.");
-}
-$stmt->close();
-
-
-
-$inizio = new DateTime($dt_attivita);
-$ora    = new DateTime();
-$diff_h = ($inizio->getTimestamp() - $ora->getTimestamp()) / 3600;
-
-
-$upd1 = "
-UPDATE PRENOTARE
-SET stato = 'cancellata', data_cancellazione = NOW()
-WHERE CF = ? AND IDA = ? AND IDP = ? AND stato = 'attiva'
+    INSERT INTO RECENSIRE (IDV, IDS, Punteggio, Descrizione,DataR)
+    VALUES (?, ?, ?, ?,?)
 ";
-$stmt1 = $mysqli->prepare($upd1);
-$stmt1->bind_param("sii", $cf, $ida, $idp);
-$stmt1->execute();
-$stmt1->close();
 
-
-if ($diff_h >= 0 && $diff_h <= 48) {
-    $upd2 = "
-    UPDATE ABBONATO
-    SET saldo_crediti = saldo_crediti + ?
-    WHERE CF = ?
-    ";
-    $stmt2 = $mysqli->prepare($upd2);
-    $stmt2->bind_param("ds", $prezzo, $cf);
-    $stmt2->execute();
-    $stmt2->close();
-
-    echo "Disdetta OK: accreditati €" ;
-} else {
-    echo "Disdetta OK: nessun accredito (< 48 oe).";
-}
+$stmt = $connection->prepare($query);
+$stmt->bind_param("iiiss", $_POST['idv'], $_POST['ids'], $_POST['punteggio'], $_POST['descrizione'],$_POST['data']);
+$stmt->execute();
 ?>
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Inserimento Recensione</title>
+</head>
+<body>
+    <h1>Inserimento Recensione</h1>
+    <?php
+    if ($stmt->affected_rows > 0) {
+        echo "<p>Recensione inserita correttamente.</p>";
+    } else {
+        echo "<p>Errore nell'inserimento della recensione.</p>";
+    }
+    $stmt->close();
+    $connection->close();
+    ?>
+</body>
+</html>
