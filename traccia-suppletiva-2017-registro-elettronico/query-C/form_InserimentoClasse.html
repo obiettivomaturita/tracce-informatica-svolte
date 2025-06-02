@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Inserimento Classe</title>
+</head>
+<body>
+    <h1>Inserisci Classe</h1>
+    <form action="insert.php" method="POST">
+        <label for="idc">ID Classe:</label>
+        <input type="text" id="idc" name="IDC" required><br><br>
+        <label for="indirizzo">Indirizzo:</label>
+        <input type="text" id="indirizzo" name="Indirizzo" required><br><br>
+        <label for="tipologia">Tipologia:</label>
+        <select id="tipologia" name="Tipologia">
+            <option value="Liceo">Liceo</option>
+            <option value="Tecnico">Tecnico</option>
+            <option value="Professionale">Professionale</option>
+        </select><br><br>
+        <input type="submit" value="Inserisci Classe">
+    </form>
+</body>
+</html>
+
+
+

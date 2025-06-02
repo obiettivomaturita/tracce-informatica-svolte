@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Inserisci Assenza</title>
+</head>
+<body>
+    <h1>Inserimento Assenza</h1>
+    <form action="insert.php" method="POST">
+        <label for="cf_studente">Codice Fiscale Studente:</label>
+        <input type="text" name="cf_studente" required><br><br>
+
+        <label for="cf_docente">Codice Fiscale Docente:</label>
+        <input type="text" name="cf_docente" required><br><br>
+
+        <label for="data">Data:</label>
+        <input type="date" name="data" required><br><br>
+
+        <label for="ora_inizio">Ora Inizio:</label>
+        <input type="number" name="ora_inizio" min="0" max="23"><br><br>
+
+        <label for="minuto_inizio">Minuto Inizio:</label>
+        <input type="number" name="minuto_inizio" min="0" max="59"><br><br>
+
+        <label for="ora_fine">Ora Fine:</label>
+        <input type="number" name="ora_fine" min="0" max="23"><br><br>
+
+        <label for="minuto_fine">Minuto Fine:</label>
+        <input type="number" name="minuto_fine" min="0" max="59"><br><br>
+
+        <input type="submit" value="Inserisci Assenza">
+    </form>
+</body>
+</html>
+
+
+
+
