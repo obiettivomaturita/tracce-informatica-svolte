@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Verifica disponibilità capo</title>
+</head>
+<body>
+    <h1>Verifica disponibilità capi per modello e taglia</h1>
+    <form action="query.php" method="POST">
+        <label for="IDM">ID Modello:</label>
+        <input type="number" id="IDM" name="IDM" required><br><br>
+
+        <label for="Taglia">Taglia:</label>
+        <select id="Taglia" name="Taglia" required>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+        </select><br><br>
+
+        <input type="submit" value="Cerca">
+    </form>
+</body>
+</html>
+
+
+
+
