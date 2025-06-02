@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Inserisci Prestito</title>
+</head>
+<body>
+    <h1>Inserisci un Nuovo Prestito</h1>
+    <form action="insert.php" method="POST">
+        <label for="DataInizio">Data Inizio:</label>
+        <input type="date" id="DataInizio" name="DataInizio" required><br><br>
+
+        <label for="DataFine">Data Fine (lascia vuoto se ancora in corso):</label>
+        <input type="date" id="DataFine" name="DataFine"><br><br>
+
+        <label for="NumeroInventario">Numero Inventario:</label>
+        <input type="number" id="NumeroInventario" name="NumeroInventario" required><br><br>
+
+        <label for="IDC">ID Centro:</label>
+        <input type="number" id="IDC" name="IDC" required><br><br>
+
+        <label for="IDU">ID Utente:</label>
+        <input type="number" id="IDU" name="IDU" required><br><br>
+
+        <input type="submit" value="Registra Prestito">
+    </form>
+</body>
+</html>
+
+
+
+
