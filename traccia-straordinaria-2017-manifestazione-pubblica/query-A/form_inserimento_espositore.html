@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Inserisci Dati</title>
+</head>
+<body>
+    <h2>Inserisci un Espositore</h2>
+    <form method="POST" action="insert.php">
+        <input type="hidden" name="form_type" value="espositore">
+        CF: <input type="text" name="CF" required><br>
+        Nome: <input type="text" name="Nome" required><br>
+        Cognome: <input type="text" name="Cognome" required><br>
+        Recapito Telefonico: <input type="text" name="RecapitoTelefonico"><br>
+        Email: <input type="email" name="Email" required><br>
+        Username: <input type="text" name="Username" required><br>
+        Password: <input type="password" name="Password" required><br>
+        Qualifica: 
+        <select name="Qualifica">
+            <option value="professionista del settore">Professionista</option>
+            <option value="amatore">Amatore</option>
+            <option value="esperto non professionista">Esperto</option>
+        </select><br>
+        Curriculum (nome file): <input type="text" name="CurriculumPDF" required><br>
+        ID Area: <input type="number" name="IDA" required><br>
+        <button type="submit">Inserisci Espositore</button>
+    </form>
+</body>
+</html>
+
+
+
+

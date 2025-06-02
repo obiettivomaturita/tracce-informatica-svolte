@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Inserisci Candidatura</title>
+</head>
+<body>
+    <h1>Inserisci una Nuova Candidatura</h1>
+    <form action="insert.php" method="POST">
+        <label for="Titolo">Titolo:</label>
+        <input type="text" id="Titolo" name="Titolo" required><br><br>
+
+        <label for="Descrizione">Descrizione (max 2000 caratteri):</label><br>
+        <textarea id="Descrizione" name="Descrizione" rows="6" cols="60" maxlength="2000" required></textarea><br><br>
+
+        <label for="Immagine">Nome file immagine:</label>
+        <input type="text" id="Immagine" name="Immagine"><br><br>
+
+        <label for="URLApprofondimento">URL di approfondimento:</label>
+        <input type="url" id="URLApprofondimento" name="URLApprofondimento"><br><br>
+
+        <label for="Stato">Stato candidatura:</label>
+        <select name="Stato" id="Stato" required>
+            <option value="In attesa">In attesa</option>
+            <option value="Accettato">Accettato</option>
+            <option value="Rifiutato">Rifiutato</option>
+        </select><br><br>
+
+        <label for="CF">Codice Fiscale Espositore:</label>
+        <input type="text" id="CF" name="CF" required><br><br>
+
+        <input type="submit" value="Inserisci Candidatura">
+    </form>
+</body>
+</html>
+
+
+
