@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestione delle mie Candidature</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #004c97;
+    }
+
+   
+    header {
+      background-color: #004c97;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li a {
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    nav li a.active {
+      text-decoration: underline;
+    }
+
+   
+    .breadcrumb {
+      background-color: #e0e0e0;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .breadcrumb span {
+      margin: 0 0.5rem;
+      color: #555;
+    }
+
+    
+    main {
+      max-width: 900px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+      background-color: #fff;
+      border: 1px solid #ddd;
+    }
+
+    .page-title {
+      font-size: 1.6rem;
+      margin: 1rem 0;
+      color: #004c97;
+    }
+
+    .deadline-info {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-create {
+      display: inline-block;
+      background-color: #28a745;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-create.disabled {
+      background-color: #ccc;
+      pointer-events: none;
+    }
+
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #ccc;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #004c97;
+      color: #fff;
+    }
+
+    
+    .status-badge {
+      padding: 0.2rem 0.4rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      color: #fff;
+    }
+
+    .status-in-attesa {
+      background-color: #ffc107;
+    }
+
+    .status-accettato {
+      background-color: #28a745;
+    }
+
+    .status-rifiutato {
+      background-color: #dc3545;
+    }
+
+   
+    .icon-button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-right: 0.5rem;
+    }
+
+    .icon-button.disabled {
+      color: #aaa;
+      cursor: default;
+    }
+
+ 
+    footer {
+      background-color: #e0e0e0;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    footer a {
+      color: #004c97;
+      margin: 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+ 
+  <header>
+    <h1>Gestione Manifestazione</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#" class="active">Le mie Candidature</a></li>
+        <li><a href="#">Profilo utente</a></li>
+        <li><a href="#">Guida on-line</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+ 
+  <div class="breadcrumb">
+    <a href="#">Home</a>
+    <span>›</span>
+    <a href="#">Candidature</a>
+    <span>›</span>
+    <span>Le mie Candidature</span>
+  </div>
+
+ 
+  <main>
+    <h2 class="page-title">Gestione delle mie Candidature</h2>
+    <p class="deadline-info">
+      Puoi creare, modificare o cancellare le tue candidature fino al <strong>30/06/2025</strong>. Oggi è il <strong>15/05/2025</strong>.
+    </p>
+    <a href="#" class="btn-create">+ Crea nuova Candidatura</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>IDC</th>
+          <th>Titolo</th>
+          <th>Data Invio</th>
+          <th>Stato</th>
+          <th>Ultima Modifica</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Robotica educativa</td>
+          <td>01/05/2025</td>
+          <td><span class="status-badge status-accettato">Accettato</span></td>
+          <td>10/05/2025</td>
+          <td>
+            <button class="icon-button" title="Visualizza">👁️</button>
+            <button class="icon-button" title="Modifica">✏️</button>
+            <button class="icon-button" title="Elimina">🗑️</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Arte digitale</td>
+          <td>05/05/2025</td>
+          <td><span class="status-badge status-in-attesa">In attesa</span></td>
+          <td>12/05/2025</td>
+          <td>
+            <button class="icon-button" title="Visualizza">👁️</button>
+            <button class="icon-button" title="Modifica">✏️</button>
+            <button class="icon-button" title="Elimina">🗑️</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Giardino sensoriale</td>
+          <td>08/04/2025</td>
+          <td><span class="status-badge status-accettato">Accettato</span></td>
+          <td>08/04/2025</td>
+          <td>
+            <button class="icon-button" title="Visualizza">👁️</button>
+            <button class="icon-button disabled" title="Modifica disabilitato">✏️</button>
+            <button class="icon-button disabled" title="Elimina disabilitato">🗑️</button>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Musica e tecnologia</td>
+          <td>12/05/2025</td>
+          <td><span class="status-badge status-accettato">Accettato</span></td>
+          <td>12/05/2025</td>
+          <td>
+            <button class="icon-button" title="Visualizza">👁️</button>
+            <button class="icon-button" title="Modifica">✏️</button>
+            <button class="icon-button" title="Elimina">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>
+      <a href="#">Regolamento Manifestazione</a> |
+      <a href="#">Privacy e Termini</a> |
+      <a href="#">Contatti</a>
+    </p>
+  </footer>
+</body>
+</html>
