@@ -1,0 +1,94 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f7f7f7;
+    color: #333;
+  }
+  
+  header {
+    background-color: #004080;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .filtro-eventi {
+    background-color: #e1f5fe;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .filtro-eventi form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .filtro-eventi label {
+    margin-right: 0.5rem;
+  }
+  
+  .filtro-eventi input, .filtro-eventi select {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+
+  main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  .eventi-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .evento {
+    background: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .evento h3 {
+    color: #004080;
+  }
+  
+  .evento a {
+    color: #004080;
+    text-decoration: none;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #ddd;
+    font-size: 0.9rem;
+  }
+  

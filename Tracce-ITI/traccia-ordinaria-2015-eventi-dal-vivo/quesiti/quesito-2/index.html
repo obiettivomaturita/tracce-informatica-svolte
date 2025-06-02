@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>EventiLive - Community</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo"> EventiLive</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Eventi</a></li>
+        <li><a href="#">Categorie</a></li>
+        <li><a href="#">Profilo</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <section class="filtro-eventi">
+    <h2>Filtra Eventi</h2>
+    <form action="#" method="GET">
+      <label for="categoria">Categoria:</label>
+      <select id="categoria" name="categoria">
+        <option value="concerti">Concerti</option>
+        <option value="teatro">Teatro</option>
+        <option value="balletto">Balletto</option>
+      </select>
+      <label for="provincia">Provincia:</label>
+      <input type="text" id="provincia" name="provincia">
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data">
+      <button type="submit">Filtra</button>
+    </form>
+  </section>
+
+
+  <main>
+    <h1>Eventi in Programma</h1>
+    <div class="eventi-lista">
+      <article class="evento">
+        <h3>Concerto di Vivaldi</h3>
+        <p>Data: 25 Aprile 2025 - Luogo: Milano</p>
+        <p>Artista: Vivaldi Orchestra</p>
+        <a href="#">Scopri di più</a>
+      </article>
+      <article class="evento">
+        <h3>La Traviata</h3>
+        <p>Data: 10 Maggio 2025 - Luogo: Roma</p>
+        <p>Artista: Teatro dell'Opera</p>
+        <a href="#">Scopri di più</a>
+      </article>
+    </div>
+  </main>
+
+</body>
+</html>
