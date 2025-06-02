@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Richiesta Contributo</title>
+</head>
+<body>
+    <h1>Inserisci una Richiesta di Contributo</h1>
+    <form action="insert.php" method="POST">
+        <label for="Protocollo">Numero Protocollo:</label>
+        <input type="text" id="Protocollo" name="Protocollo" required><br><br>
+
+        <label for="IDC">ID Contributo:</label>
+        <input type="number" id="IDC" name="IDC" required><br><br>
+
+        <label for="CF">Codice Fiscale:</label>
+        <input type="text" id="CF" name="CF" required><br><br>
+
+        <label for="Motivo">Motivo:</label>
+        <input type="text" id="Motivo" name="Motivo" required><br><br>
+
+        <label for="Data">Data della Richiesta:</label>
+        <input type="date" id="Data" name="Data" required><br><br>
+
+        <label for="SommaMensile">Somma Mensile Richiesta:</label>
+        <input type="number" id="SommaMensile" name="SommaMensile" step="0.01" required><br><br>
+
+        <input type="submit" value="Invia Richiesta">
+    </form>
+</body>
+</html>
+
+
+
+
